@@ -14,6 +14,7 @@
 		0E7CA114278678E700E1BCCE /* Rise_n_SIUUUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA113278678E700E1BCCE /* Rise_n_SIUUUTests.swift */; };
 		0E7CA11E278678E700E1BCCE /* Rise_n_SIUUUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA11D278678E700E1BCCE /* Rise_n_SIUUUUITests.swift */; };
 		0E7CA120278678E700E1BCCE /* Rise_n_SIUUUUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA11F278678E700E1BCCE /* Rise_n_SIUUUUITestsLaunchTests.swift */; };
+		0E7CA12D27867B0000E1BCCE /* SIUUU_Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0E7CA119278678E700E1BCCE /* Rise-n-SIUUUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rise-n-SIUUUUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7CA11D278678E700E1BCCE /* Rise_n_SIUUUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rise_n_SIUUUUITests.swift; sourceTree = "<group>"; };
 		0E7CA11F278678E700E1BCCE /* Rise_n_SIUUUUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rise_n_SIUUUUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SIUUU_Audio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				0E7CA102278678E600E1BCCE /* Rise_n_SIUUUApp.swift */,
 				0E7CA104278678E600E1BCCE /* ContentView.swift */,
+				0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */,
 				0E7CA106278678E700E1BCCE /* Assets.xcassets */,
 				0E7CA108278678E700E1BCCE /* Preview Content */,
 			);
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E7CA12D27867B0000E1BCCE /* SIUUU_Audio.mp3 in Resources */,
 				0E7CA10A278678E700E1BCCE /* Preview Assets.xcassets in Resources */,
 				0E7CA107278678E700E1BCCE /* Assets.xcassets in Resources */,
 			);
@@ -433,7 +437,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.neilkhatri.Rise-n-SIUUU";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Rise-n-SIUUU";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,7 +466,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.neilkhatri.Rise-n-SIUUU";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Rise-n-SIUUU";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
