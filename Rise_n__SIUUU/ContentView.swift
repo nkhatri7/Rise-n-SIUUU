@@ -87,15 +87,7 @@ struct ContentView: View {
                     .frame(width: 150, height: 150)
                     .padding()
                 Spacer()
-    //            Button("Request Permission") {
-    //                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { success, error in
-    //                    if success {
-    //                        print("Successful")
-    //                    } else if let error = error {
-    //                        print(error.localizedDescription)
-    //                    }
-    //                }
-    //            }
+                
                 if (hour == 100) {
                     NavigationLink(destination: TimeSelectorView()) {
                         Text("Set an alarm")
