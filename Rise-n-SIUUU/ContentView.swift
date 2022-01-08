@@ -58,8 +58,8 @@ extension View {
 
 struct ContentView: View {
     @Environment(\.colorScheme) var currentMode
-    @AppStorage("hour") private var hour = 0
-    @AppStorage("minute") private var minute = 0
+    @AppStorage("hour") private var hour = 100
+    @AppStorage("minute") private var minute = 100
     @AppStorage("active") private var active = true
     
     func formatNumber(number: Int) -> String {
@@ -67,10 +67,12 @@ struct ContentView: View {
     }
     
     func displayAlarmTime() -> String {
-        if hour > 12 {
-            return("\(hour - 12):\(formatNumber(number: minute))pm")
-        } else {
+        if hour == 0 {
+            return("12:\(formatNumber(number: minute))am")
+        } else if hour < 12 {
             return ("\(hour):\(formatNumber(number: minute))am")
+        } else {
+            return ("\(hour - 12):\(formatNumber(number: minute))pm")
         }
     }
     
@@ -94,7 +96,7 @@ struct ContentView: View {
     //                    }
     //                }
     //            }
-                if (hour == 0) {
+                if (hour == 100) {
                     NavigationLink(destination: TimeSelectorView()) {
                         Text("Set an alarm")
                             .foregroundColor(Color.white)
@@ -140,8 +142,17 @@ struct ContentView: View {
                                 .padding(.trailing, 10)
                         }
                         .border(width: 1, edges: [.top, .bottom], color: Color.gray.opacity(0.25))
+                        .onAppear {
+                            UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { notifications in
+                                if notifications == [] {
+                                    active = false
+                                }
+                            })
+                        }
                     }
                 }
+                Spacer()
+                Spacer()
                 Spacer()
                 Spacer()
             }
