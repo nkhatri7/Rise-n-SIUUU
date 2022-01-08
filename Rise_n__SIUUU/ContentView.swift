@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Rise-n-SIUUU
+//  Rise n' SIUUU
 //
 //  Created by Neil Khatri on 6/1/22.
 //

@@ -1,9 +1,11 @@
 //
 //  Alarm.swift
-//  Rise-n-SIUUU
+//  Rise n' SIUUU
 //
 //  Created by Neil Khatri on 7/1/22.
 //
+
+// Will be used in future updates for multiple alarms
 
 import Foundation
 

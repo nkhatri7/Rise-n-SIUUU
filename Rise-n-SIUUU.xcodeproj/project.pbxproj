@@ -39,7 +39,7 @@
 /* Begin PBXFileReference section */
 		0E0603D12787996E00B55B1E /* TimeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectorView.swift; sourceTree = "<group>"; };
 		0E0603D327879B2700B55B1E /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
-		0E7CA0FF278678E600E1BCCE /* Rise-n-SIUUU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rise-n-SIUUU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E7CA0FF278678E600E1BCCE /* Rise n' SIUUU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rise n' SIUUU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7CA102278678E600E1BCCE /* Rise_n_SIUUUApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rise_n_SIUUUApp.swift; sourceTree = "<group>"; };
 		0E7CA104278678E600E1BCCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E7CA106278678E700E1BCCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		0E7CA0F6278678E600E1BCCE = {
 			isa = PBXGroup;
 			children = (
-				0E7CA101278678E600E1BCCE /* Rise-n-SIUUU */,
+				0E7CA101278678E600E1BCCE /* Rise_n__SIUUU */,
 				0E7CA112278678E700E1BCCE /* Rise-n-SIUUUTests */,
 				0E7CA11C278678E700E1BCCE /* Rise-n-SIUUUUITests */,
 				0E7CA100278678E600E1BCCE /* Products */,
@@ -90,14 +90,14 @@
 		0E7CA100278678E600E1BCCE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0E7CA0FF278678E600E1BCCE /* Rise-n-SIUUU.app */,
+				0E7CA0FF278678E600E1BCCE /* Rise n' SIUUU.app */,
 				0E7CA10F278678E700E1BCCE /* Rise-n-SIUUUTests.xctest */,
 				0E7CA119278678E700E1BCCE /* Rise-n-SIUUUUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0E7CA101278678E600E1BCCE /* Rise-n-SIUUU */ = {
+		0E7CA101278678E600E1BCCE /* Rise_n__SIUUU */ = {
 			isa = PBXGroup;
 			children = (
 				0E7CA102278678E600E1BCCE /* Rise_n_SIUUUApp.swift */,
@@ -108,7 +108,7 @@
 				0E7CA106278678E700E1BCCE /* Assets.xcassets */,
 				0E7CA108278678E700E1BCCE /* Preview Content */,
 			);
-			path = "Rise-n-SIUUU";
+			path = Rise_n__SIUUU;
 			sourceTree = "<group>";
 		};
 		0E7CA108278678E700E1BCCE /* Preview Content */ = {
@@ -153,7 +153,7 @@
 			);
 			name = "Rise-n-SIUUU";
 			productName = "Rise-n-SIUUU";
-			productReference = 0E7CA0FF278678E600E1BCCE /* Rise-n-SIUUU.app */;
+			productReference = 0E7CA0FF278678E600E1BCCE /* Rise n' SIUUU.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0E7CA10E278678E700E1BCCE /* Rise-n-SIUUUTests */ = {
@@ -430,7 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Rise-n-SIUUU/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Rise_n__SIUUU/Preview Content\"";
 				DEVELOPMENT_TEAM = HGUP6V4NA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -443,12 +443,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.neilkhatri.Rise-n-SIUUU";
-				PRODUCT_NAME = "Rise-n-SIUUU";
+				PRODUCT_NAME = "Rise n' SIUUU";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -459,7 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Rise-n-SIUUU/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Rise_n__SIUUU/Preview Content\"";
 				DEVELOPMENT_TEAM = HGUP6V4NA4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -472,12 +472,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.neilkhatri.Rise-n-SIUUU";
-				PRODUCT_NAME = "Rise-n-SIUUU";
+				PRODUCT_NAME = "Rise n' SIUUU";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
