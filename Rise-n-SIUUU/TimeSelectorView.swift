@@ -10,6 +10,7 @@ import UserNotifications
 
 struct TimeSelectorView: View {
     @Environment(\.colorScheme) var currentMode
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     @State private var currentTime = Date.now
     @AppStorage("hour") private var hour = 0
     @AppStorage("minute") private var minute = 0
@@ -53,6 +54,8 @@ struct TimeSelectorView: View {
                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
                 UNUserNotificationCenter.current().add(request)
+                
+                presentationMode.wrappedValue.dismiss()
             })
                 .foregroundColor(Color.white)
                 .font(.system(size: 20, weight: Font.Weight.semibold))
@@ -64,10 +67,10 @@ struct TimeSelectorView: View {
     }
 }
 
-struct TimeSelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ForEach(ColorScheme.allCases, id: \.self) {
-            TimeSelectorView().preferredColorScheme($0)
-        }
-    }
-}
+//struct TimeSelectorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ForEach(ColorScheme.allCases, id: \.self) {
+//            TimeSelectorView().preferredColorScheme($0)
+//        }
+//    }
+//}
