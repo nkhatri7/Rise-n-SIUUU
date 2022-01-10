@@ -20,7 +20,7 @@ struct TimeSelectorView: View {
         let content = UNMutableNotificationContent()
         content.title = "Rise n' SIUUU"
         content.subtitle = "SIUUUUUUUU"
-        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "SIUUU_Audio.mp3"))
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "SIUUU_Notification_Loop.mp3"))
 
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current

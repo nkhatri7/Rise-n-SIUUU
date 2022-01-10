@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E0603D22787996E00B55B1E /* TimeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0603D12787996E00B55B1E /* TimeSelectorView.swift */; };
 		0E0603D427879B2700B55B1E /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0603D327879B2700B55B1E /* Alarm.swift */; };
+		0E575E59278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E575E58278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 */; };
 		0E7CA103278678E600E1BCCE /* Rise_n_SIUUUApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA102278678E600E1BCCE /* Rise_n_SIUUUApp.swift */; };
 		0E7CA105278678E600E1BCCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA104278678E600E1BCCE /* ContentView.swift */; };
 		0E7CA107278678E700E1BCCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7CA106278678E700E1BCCE /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		0E0603D12787996E00B55B1E /* TimeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectorView.swift; sourceTree = "<group>"; };
 		0E0603D327879B2700B55B1E /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		0E575E58278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SIUUU_Notification_Loop.mp3; sourceTree = "<group>"; };
 		0E7CA0FF278678E600E1BCCE /* Rise n' SIUUU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rise n' SIUUU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E7CA102278678E600E1BCCE /* Rise_n_SIUUUApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rise_n_SIUUUApp.swift; sourceTree = "<group>"; };
 		0E7CA104278678E600E1BCCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				0E0603D12787996E00B55B1E /* TimeSelectorView.swift */,
 				0E0603D327879B2700B55B1E /* Alarm.swift */,
 				0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */,
+				0E575E58278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 */,
 				0E7CA106278678E700E1BCCE /* Assets.xcassets */,
 				0E7CA108278678E700E1BCCE /* Preview Content */,
 			);
@@ -243,6 +246,7 @@
 				0E7CA12D27867B0000E1BCCE /* SIUUU_Audio.mp3 in Resources */,
 				0E7CA10A278678E700E1BCCE /* Preview Assets.xcassets in Resources */,
 				0E7CA107278678E700E1BCCE /* Assets.xcassets in Resources */,
+				0E575E59278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
