@@ -11,7 +11,7 @@ import UserNotifications
 struct TimeSelectorView: View {
     @Environment(\.colorScheme) var currentMode
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    @State private var currentTime = Date.now
+    @State private var currentTime = Date()
     @AppStorage("hour") private var hour = 100
     @AppStorage("minute") private var minute = 100
     @AppStorage("active") private var active = true
