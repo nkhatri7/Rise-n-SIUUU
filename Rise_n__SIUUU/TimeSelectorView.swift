@@ -15,12 +15,18 @@ struct TimeSelectorView: View {
     @AppStorage("hour") private var hour = 100
     @AppStorage("minute") private var minute = 100
     @AppStorage("active") private var active = true
+    @AppStorage("sound") private var sound = "SIUUU_Notification_Loop.mp3"
     
-    func createNotification(hour: Int, minute: Int) {
+    func createNotification() {
+        let calendar = Calendar.current
+        
+        hour = calendar.component(.hour, from: currentTime)
+        minute = calendar.component(.minute, from: currentTime)
+        
         let content = UNMutableNotificationContent()
         content.title = "Rise n' SIUUU"
         content.subtitle = "SIUUUUUUUU"
-        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: "SIUUU_Notification_Loop.mp3"))
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: sound))
 
         var dateComponents = DateComponents()
         dateComponents.calendar = Calendar.current
@@ -57,21 +63,10 @@ struct TimeSelectorView: View {
             Spacer()
             
             Button("Save", action: {
-                if hour == 100 {
-                    let calendar = Calendar.current
-                    
-                    hour = calendar.component(.hour, from: currentTime)
-                    minute = calendar.component(.minute, from: currentTime)
-                    
-                    createNotification(hour: hour, minute: minute)
-                } else {
-                    let calendar = Calendar.current
-                    
-                    hour = calendar.component(.hour, from: currentTime)
-                    minute = calendar.component(.minute, from: currentTime)
+                if hour != 100 {
                     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                    createNotification(hour: hour, minute: minute)
                 }
+                createNotification()
                 
                 presentationMode.wrappedValue.dismiss()
             })
