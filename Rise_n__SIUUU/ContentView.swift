@@ -24,8 +24,10 @@ struct ContentView: View {
             return("12:\(formatNumber(number: minute))am")
         } else if hour < 12 {
             return ("\(hour):\(formatNumber(number: minute))am")
+        } else if hour == 12 {
+            return ("12:\(formatNumber(number: minute))pm")
         } else {
-            return ("\(hour - 12):\(formatNumber(number: minute))pm")
+            return ("\(hour - 12):\(formatNumber(number: minute))")
         }
     }
     
