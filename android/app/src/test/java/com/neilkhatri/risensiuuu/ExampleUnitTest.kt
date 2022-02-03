@@ -1,4 +1,4 @@
-package com.example.risensiuuu
+package com.neilkhatri.risensiuuu
 
 import org.junit.Test
 
