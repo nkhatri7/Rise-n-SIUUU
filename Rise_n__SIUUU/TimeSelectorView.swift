@@ -11,17 +11,16 @@ import UserNotifications
 struct TimeSelectorView: View {
     @Environment(\.colorScheme) var currentMode
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-    @State private var currentTime = Date()
     @AppStorage("hour") private var hour = 100
     @AppStorage("minute") private var minute = 100
     @AppStorage("active") private var active = true
     @AppStorage("sound") private var sound = "SIUUU_Notification_Loop.mp3"
+    @State private var alarmTime = Date()
     
     func createNotification() {
         let calendar = Calendar.current
-        
-        hour = calendar.component(.hour, from: currentTime)
-        minute = calendar.component(.minute, from: currentTime)
+        hour = calendar.component(.hour, from: alarmTime)
+        minute = calendar.component(.minute, from: alarmTime)
         
         let content = UNMutableNotificationContent()
         content.title = "Rise n' SIUUU"
@@ -54,7 +53,7 @@ struct TimeSelectorView: View {
             
             Spacer()
             
-            DatePicker("Pick a time", selection: $currentTime, displayedComponents: .hourAndMinute)
+            DatePicker("Pick a time", selection: $alarmTime, displayedComponents: .hourAndMinute)
                 .labelsHidden()
                 .transformEffect(.init(scaleX: 1.7, y: 1.7))
                 .frame(width: 170, height: 60, alignment: .topLeading)
@@ -78,6 +77,17 @@ struct TimeSelectorView: View {
                 .padding()
         }
         .background(Color("customBackgroundColour").edgesIgnoringSafeArea(.all))
+        .onAppear(perform: getCurrentAlarmTime)
+    }
+    
+    func getCurrentAlarmTime() {
+        if (hour != 100) {
+            var components = DateComponents()
+            components.hour = hour
+            components.minute = minute
+            let date = Calendar.current.date(from: components)!
+            alarmTime = date
+        }
     }
 }
 
