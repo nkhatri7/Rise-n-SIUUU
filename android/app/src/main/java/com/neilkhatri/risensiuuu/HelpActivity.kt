@@ -5,18 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageButton
 
-class MainActivity : AppCompatActivity() {
+class HelpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_help)
 
-        configureHelpBtn()
-    }
-
-    private fun configureHelpBtn() {
-        val helpBtn = findViewById<ImageButton>(R.id.helpBtn)
-        helpBtn.setOnClickListener {
-            val intent = Intent(this, HelpActivity::class.java)
+        val backBtn = findViewById<ImageButton>(R.id.helpBackBtn)
+        backBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

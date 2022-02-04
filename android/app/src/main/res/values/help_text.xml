@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_text">
+        To hear the SIUUU alarm, your phone must have silent mode switched off.
+    </string>
+</resources>
