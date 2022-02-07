@@ -8,15 +8,27 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TimePicker
 import androidx.annotation.RequiresApi
+import androidx.preference.PreferenceManager
+
 
 class TimeSelectorActivity : AppCompatActivity() {
-    private var hour = 0
-    private var minute = 0
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_selector)
+
+        // Get alarm time from shared preferences
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val hour = prefs.getInt("hour", 100)
+        val minute = prefs.getInt("minute", 100)
+
+        // If alarm time has previously been set, display the timepicker at alarm time
+        if (hour != 100) {
+            val timeSelector = findViewById<TimePicker>(R.id.timePicker)
+            timeSelector.hour = hour
+            timeSelector.minute = minute
+        }
 
         configureBackBtn()
         configureSaveBtn()
@@ -27,8 +39,15 @@ class TimeSelectorActivity : AppCompatActivity() {
         val saveBtn = findViewById<Button>(R.id.alarmSaveBtn)
         saveBtn.setOnClickListener {
             val timeSelector = findViewById<TimePicker>(R.id.timePicker)
-            hour = timeSelector.hour
-            minute = timeSelector.minute
+
+            // Save time to shared preferences
+            val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+            val editor = prefs.edit()
+            editor.putInt("hour", timeSelector.hour)
+            editor.putInt("minute", timeSelector.minute)
+            editor.putBoolean("active", true)
+            editor.apply()
+
             navigateHome()
         }
     }

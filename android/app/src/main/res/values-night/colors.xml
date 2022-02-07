@@ -4,4 +4,5 @@
     <color name="background">#171717</color>
     <color name="text_colour">#FFFFFF</color>
     <color name="brand_red">#E94E3D</color>
+    <color name="grey">#797979</color>
 </resources>

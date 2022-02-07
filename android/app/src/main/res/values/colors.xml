@@ -11,4 +11,5 @@
     <color name="background">#FFFFFF</color>
     <color name="text_colour">#000000</color>
     <color name="brand_red">#E94E3D</color>
+    <color name="grey">#797979</color>
 </resources>

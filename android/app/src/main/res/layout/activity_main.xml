@@ -25,10 +25,10 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/brand_red"
         android:fontFamily="sans-serif-medium"
+        android:paddingLeft="25dp"
         android:paddingTop="15dp"
         android:paddingRight="25dp"
         android:paddingBottom="15dp"
-        android:paddingLeft="25dp"
         android:text="Set an alarm"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
@@ -39,42 +39,111 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/helpBtn"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="#8E8E92"
-        android:contentDescription="Help"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:padding="5dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@android:drawable/ic_menu_help"
-        app:tint="@color/background" />
+        app:layout_constraintVertical_bias="1.0">
 
-    <ImageButton
-        android:id="@+id/optionsBtn"
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/helpBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#8E8E92"
+                android:contentDescription="Help"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.976"
+                app:srcCompat="@android:drawable/ic_menu_help"
+                app:tint="@color/background" />
+
+            <Space
+                android:layout_width="280dp"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/optionsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#8E8E92"
+                android:contentDescription="Options"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.943"
+                app:layout_constraintStart_toEndOf="@+id/helpBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.976"
+                app:srcCompat="@android:drawable/ic_menu_manage"
+                app:tint="@color/background" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/alarmTimeContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="#8E8E92"
-        android:contentDescription="Options"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:padding="5dp"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:background="@drawable/top_bottom_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toEndOf="@+id/helpBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:srcCompat="@android:drawable/ic_menu_manage"
-        app:tint="@color/background" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/alarmTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/text_colour" />
+
+        <Switch
+            android:id="@+id/activeToggle"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:contentDescription="toggle for alarm"
+            android:layout_marginRight="-15dp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="-15dp"
+            app:srcCompat="@drawable/chevron_right" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
