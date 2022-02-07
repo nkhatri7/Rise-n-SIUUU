@@ -10,4 +10,5 @@
     <color name="red">#FF0000</color>
     <color name="background">#FFFFFF</color>
     <color name="text_colour">#000000</color>
+    <color name="brand_red">#E94E3D</color>
 </resources>
