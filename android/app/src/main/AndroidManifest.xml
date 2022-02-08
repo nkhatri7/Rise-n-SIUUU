@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.neilkhatri.risensiuuu">
 
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,6 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HelpActivity" />
+
+        <receiver android:name=".AlarmReceiver" />
     </application>
 
 </manifest>

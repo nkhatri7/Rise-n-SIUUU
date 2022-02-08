@@ -1,14 +1,25 @@
 package com.neilkhatri.risensiuuu
 
+import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.TimePicker
 import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.preference.PreferenceManager
+import java.time.LocalDateTime
+import java.util.*
 
 
 class TimeSelectorActivity : AppCompatActivity() {
@@ -30,10 +41,17 @@ class TimeSelectorActivity : AppCompatActivity() {
             timeSelector.minute = minute
         }
 
+        val title = findViewById<TextView>(R.id.timeSelectorTitle)
+        title.text = when {
+            hour != 100 -> "Edit Alarm"
+            else -> "Add Alarm"
+        }
+
         configureBackBtn()
         configureSaveBtn()
     }
 
+    @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.M)
     private fun configureSaveBtn() {
         val saveBtn = findViewById<Button>(R.id.alarmSaveBtn)
@@ -47,6 +65,19 @@ class TimeSelectorActivity : AppCompatActivity() {
             editor.putInt("minute", timeSelector.minute)
             editor.putBoolean("active", true)
             editor.apply()
+
+            val calendar = Calendar.getInstance()
+            calendar.set(Calendar.HOUR_OF_DAY, timeSelector.hour)
+            calendar.set(Calendar.MINUTE, timeSelector.minute)
+            calendar.set(Calendar.SECOND, 0)
+
+            val intent = Intent(this, AlarmReceiver::class.java)
+
+            val pendingIntent = PendingIntent.getBroadcast(this, 0, intent,
+                    PendingIntent.FLAG_IMMUTABLE)
+
+            val alarmManager : AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
 
             navigateHome()
         }
