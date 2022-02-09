@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
 
@@ -21,6 +22,18 @@ class AlarmReceiver : BroadcastReceiver() {
             PendingIntent.getActivity(context, 0, intentMainActivity,
             PendingIntent.FLAG_IMMUTABLE)
 
+        // Make the notification parameters
+        val CHANNEL_ID = "2151512"
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.logo)
+            .setContentTitle("Rise n' SIUUU")
+            .setContentText("SIUUUUUUUU")
+            .setStyle(NotificationCompat.BigTextStyle().bigText("SIUUUUUUUU"))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+            .setSound(Uri.parse("android.resource://${context.packageName}/${R.raw.siuuu_audio}"))
+            .setAutoCancel(true)
+
         // Set up the notification service
         val notificationManager : NotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -32,18 +45,6 @@ class AlarmReceiver : BroadcastReceiver() {
                 "Rise n' SIUUU notification channel", importance)
             notificationManager.createNotificationChannel(channel)
         }
-
-        // Make the notification parameters
-        val CHANNEL_ID = "2151512"
-        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.logo)
-            .setContentTitle("Rise n' SIUUU")
-            .setContentText("SIUUUUUUUU")
-            .setStyle(NotificationCompat.BigTextStyle().bigText("SIUUUUUUUU"))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent)
-            //.setSound(Uri.parse("android.resource://${context.packageName}/${R.raw.siuuu_audio}"))
-            .setAutoCancel(true)
 
         notificationManager.notify(0, builder.build())
 

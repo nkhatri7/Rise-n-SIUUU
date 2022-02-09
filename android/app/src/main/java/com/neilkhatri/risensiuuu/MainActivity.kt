@@ -1,13 +1,16 @@
 package com.neilkhatri.risensiuuu
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.preference.PreferenceManager
 
 class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,7 +37,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             activeToggle.isChecked = active
-//            alarmTime.setTextColor(if (activeToggle.isChecked) R.color.text_colour else R.color.grey)
+            val colour = if (activeToggle.isChecked) resources.getColor(R.color.text_colour, theme)
+                    else resources.getColor(R.color.grey, theme)
+            alarmTime.setTextColor(colour)
 
             alarmBtn.visibility = View.INVISIBLE
             alarmTimeContainer.setOnClickListener {
@@ -44,7 +49,19 @@ class MainActivity : AppCompatActivity() {
             activeToggle.setOnCheckedChangeListener { _, isChecked ->
                 editor.putBoolean("active", isChecked)
                 editor.apply()
-//                alarmTime.setTextColor(if (activeToggle.isChecked) R.color.text_colour else R.color.grey)
+                val colour = if (isChecked) resources.getColor(R.color.text_colour, theme)
+                        else resources.getColor(R.color.grey, theme)
+                alarmTime.setTextColor(colour)
+
+                val alarmHandler = AlarmHandler(this)
+
+                if (isChecked) {
+                    // Create alarm if active toggle is on
+                    alarmHandler.createAlarm(hour, minute)
+                } else {
+                    // Cancel alarm if active toggle is off
+                    alarmHandler.cancelAlarm()
+                }
             }
         }
 

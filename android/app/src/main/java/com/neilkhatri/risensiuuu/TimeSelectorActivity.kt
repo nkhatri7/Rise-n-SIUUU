@@ -66,18 +66,9 @@ class TimeSelectorActivity : AppCompatActivity() {
             editor.putBoolean("active", true)
             editor.apply()
 
-            val calendar = Calendar.getInstance()
-            calendar.set(Calendar.HOUR_OF_DAY, timeSelector.hour)
-            calendar.set(Calendar.MINUTE, timeSelector.minute)
-            calendar.set(Calendar.SECOND, 0)
-
-            val intent = Intent(this, AlarmReceiver::class.java)
-
-            val pendingIntent = PendingIntent.getBroadcast(this, 0, intent,
-                    PendingIntent.FLAG_IMMUTABLE)
-
-            val alarmManager : AlarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+            // Create alarm through alarm handler
+            val alarmHandler = AlarmHandler(this)
+            alarmHandler.createAlarm(timeSelector.hour, timeSelector.minute)
 
             navigateHome()
         }
