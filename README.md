@@ -5,5 +5,9 @@ Rise n' SIUUU is a utility app that enables users to set alarms that play the fa
 **Available in the App Store:** just type in rise n' siuuu or siuuu.
 
 ## Built With
+### iOS
 - Swift
 - SwiftUI
+
+### Android
+- Kotlin
