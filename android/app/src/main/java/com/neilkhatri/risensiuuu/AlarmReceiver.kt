@@ -10,6 +10,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.preference.PreferenceManager
 
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
@@ -22,14 +23,14 @@ class AlarmReceiver : BroadcastReceiver() {
             PendingIntent.getActivity(context, 0, intentMainActivity,
             PendingIntent.FLAG_IMMUTABLE)
 
-        val CHANNEL_ID = "2151512"
+        val CHANNEL_ID = "7578afga78sftas7f"
 
         // Set up the notification service
         val notificationManager : NotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = "2151512"
+            val channelId = CHANNEL_ID
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(channelId,
                 "Rise n' SIUUU notification channel", importance)
@@ -52,5 +53,11 @@ class AlarmReceiver : BroadcastReceiver() {
         // Play SIUUU sound
         val sound : MediaPlayer = MediaPlayer.create(context, R.raw.siuuu_notification_loop)
         sound.start()
+
+        // Make toggle inactive after notification has been sent
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        val editor = prefs.edit()
+        editor.putBoolean("active", false)
+        editor.apply()
     }
 }
