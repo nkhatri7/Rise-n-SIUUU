@@ -29,17 +29,16 @@ class MainActivity : AppCompatActivity() {
         if (hour == 100) {
             alarmTimeContainer.visibility = View.INVISIBLE
         } else {
+            val min = formatMinute(minute)
             alarmTime.text = when {
-                hour == 0 -> "12:${formatMinute(minute)}am"
-                hour < 12 -> "$hour:${formatMinute(minute)}am"
-                hour == 12 -> "$hour:${formatMinute(minute)}pm"
-                else -> "${hour - 12}:${formatMinute(minute)}pm"
+                hour == 0 -> "12:${min}am"
+                hour < 12 -> "$hour:${min}am"
+                hour == 12 -> "$hour:${min}pm"
+                else -> "${hour - 12}:${min}pm"
             }
 
             activeToggle.isChecked = active
-            val colour = if (activeToggle.isChecked) resources.getColor(R.color.text_colour, theme)
-                    else resources.getColor(R.color.grey, theme)
-            alarmTime.setTextColor(colour)
+            alarmTime.setTextColor(getAlarmTextColour())
 
             alarmBtn.visibility = View.INVISIBLE
             alarmTimeContainer.setOnClickListener {
@@ -49,9 +48,7 @@ class MainActivity : AppCompatActivity() {
             activeToggle.setOnCheckedChangeListener { _, isChecked ->
                 editor.putBoolean("active", isChecked)
                 editor.apply()
-                val colour = if (isChecked) resources.getColor(R.color.text_colour, theme)
-                        else resources.getColor(R.color.grey, theme)
-                alarmTime.setTextColor(colour)
+                alarmTime.setTextColor(getAlarmTextColour())
 
                 val alarmHandler = AlarmHandler(this)
 
@@ -67,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         configureAlarmBtn()
         configureHelpBtn()
+        configureOptionsBtn()
     }
 
     private fun configureAlarmBtn() {
@@ -84,6 +82,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun configureOptionsBtn() {
+        val optionsBtn = findViewById<ImageButton>(R.id.optionsBtn)
+        optionsBtn.setOnClickListener {
+            val intent = Intent(this, OptionsActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun navigateToTimeSelector() {
         val intent = Intent(this, TimeSelectorActivity::class.java)
         startActivity(intent)
@@ -91,5 +97,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun formatMinute(minute: Int): String {
         return if (minute < 10) "0$minute" else "$minute"
+    }
+
+    private fun getAlarmTextColour(): Int {
+        val activeToggle = findViewById<Switch>(R.id.activeToggle)
+        return if (activeToggle.isChecked) resources.getColor(R.color.text_colour, theme)
+                else resources.getColor(R.color.grey, theme)
     }
 }

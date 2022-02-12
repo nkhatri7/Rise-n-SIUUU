@@ -37,6 +37,14 @@ class AlarmReceiver : BroadcastReceiver() {
             notificationManager.createNotificationChannel(channel)
         }
 
+        // Get preferred alarm sound
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        var alarmSound = R.raw.siuuu_notification_loop
+        when (prefs.getString("alarmSound", "looped")) {
+            "looped" -> alarmSound = R.raw.siuuu_notification_loop
+            "single" -> alarmSound = R.raw.siuuu_audio
+        }
+
         // Make the notification parameters
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.logo)
@@ -45,17 +53,16 @@ class AlarmReceiver : BroadcastReceiver() {
             .setStyle(NotificationCompat.BigTextStyle().bigText("SIUUUUUUUU"))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
-            .setSound(Uri.parse("android.resource://${context.packageName}/${R.raw.siuuu_audio}"))
+            .setSound(Uri.parse("android.resource://${context.packageName}/${alarmSound}"))
             .setAutoCancel(true)
 
         notificationManager.notify(0, builder.build())
 
         // Play SIUUU sound
-        val sound : MediaPlayer = MediaPlayer.create(context, R.raw.siuuu_notification_loop)
+        val sound : MediaPlayer = MediaPlayer.create(context, alarmSound)
         sound.start()
 
         // Make toggle inactive after notification has been sent
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         val editor = prefs.edit()
         editor.putBoolean("active", false)
         editor.apply()
