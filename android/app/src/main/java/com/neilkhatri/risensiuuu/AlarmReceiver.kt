@@ -30,9 +30,8 @@ class AlarmReceiver : BroadcastReceiver() {
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = CHANNEL_ID
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(channelId,
+            val channel = NotificationChannel(CHANNEL_ID,
                 context.getString(R.string.channel_name), importance)
             notificationManager.createNotificationChannel(channel)
         }
