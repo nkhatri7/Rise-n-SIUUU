@@ -28,6 +28,7 @@ class TimeSelectorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_selector)
+        supportActionBar?.hide()
 
         // Get alarm time from shared preferences
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)

@@ -9,6 +9,7 @@ class HelpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_help)
+        supportActionBar?.hide()
 
         val backBtn = findViewById<ImageButton>(R.id.helpBackBtn)
         backBtn.setOnClickListener {
