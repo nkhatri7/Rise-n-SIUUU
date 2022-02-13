@@ -61,23 +61,11 @@ struct ContentView: View {
                                 .labelsHidden()
                                 .padding(.trailing, 20)
                                 .onChange(of: active) { value in
+                                    let notificationController = NotificationController()
                                     if active {
-                                        let content = UNMutableNotificationContent()
-                                        content.title = "Rise n' SIUUU"
-                                        content.subtitle = "SIUUUUUUUU"
-                                        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: sound))
-
-                                        var dateComponents = DateComponents()
-                                        dateComponents.calendar = Calendar.current
-                                        dateComponents.hour = hour
-                                        dateComponents.minute = minute
-
-                                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-                                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-                                        UNUserNotificationCenter.current().add(request)
+                                        notificationController.createNotification(hour: hour, minute: minute, sound: sound)
                                     } else {
-                                        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                                        notificationController.removeNotifications()
                                     }
                                 }
                             Image(systemName: "chevron.right")

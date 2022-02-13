@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E0603D22787996E00B55B1E /* TimeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0603D12787996E00B55B1E /* TimeSelectorView.swift */; };
 		0E0603D427879B2700B55B1E /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0603D327879B2700B55B1E /* Alarm.swift */; };
+		0E11B5C227B89FF70074CC06 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E11B5C127B89FF70074CC06 /* NotificationController.swift */; };
 		0E575E59278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E575E58278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 */; };
 		0E575E5B278C38A800D64A96 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E575E5A278C38A800D64A96 /* HelpView.swift */; };
 		0E575E5D278C3EED00D64A96 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E575E5C278C3EED00D64A96 /* SettingsView.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		0E0603D12787996E00B55B1E /* TimeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectorView.swift; sourceTree = "<group>"; };
 		0E0603D327879B2700B55B1E /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		0E11B5C127B89FF70074CC06 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		0E575E58278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SIUUU_Notification_Loop.mp3; sourceTree = "<group>"; };
 		0E575E5A278C38A800D64A96 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		0E575E5C278C3EED00D64A96 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				0E575E5A278C38A800D64A96 /* HelpView.swift */,
 				0E0603D12787996E00B55B1E /* TimeSelectorView.swift */,
 				0E575E5C278C3EED00D64A96 /* SettingsView.swift */,
+				0E11B5C127B89FF70074CC06 /* NotificationController.swift */,
 				0E0603D327879B2700B55B1E /* Alarm.swift */,
 				0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */,
 				0E575E58278C319F00D64A96 /* SIUUU_Notification_Loop.mp3 */,
@@ -280,6 +283,7 @@
 				0E0603D22787996E00B55B1E /* TimeSelectorView.swift in Sources */,
 				0E7CA105278678E600E1BCCE /* ContentView.swift in Sources */,
 				0E7CA103278678E600E1BCCE /* Rise_n_SIUUUApp.swift in Sources */,
+				0E11B5C227B89FF70074CC06 /* NotificationController.swift in Sources */,
 				0E575E5D278C3EED00D64A96 /* SettingsView.swift in Sources */,
 				0E575E5B278C38A800D64A96 /* HelpView.swift in Sources */,
 				0E0603D427879B2700B55B1E /* Alarm.swift in Sources */,

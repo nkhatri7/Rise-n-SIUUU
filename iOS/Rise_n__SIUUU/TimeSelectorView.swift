@@ -17,28 +17,6 @@ struct TimeSelectorView: View {
     @AppStorage("sound") private var sound = "SIUUU_Notification_Loop.mp3"
     @State private var alarmTime = Date()
     
-    func createNotification() {
-        let calendar = Calendar.current
-        hour = calendar.component(.hour, from: alarmTime)
-        minute = calendar.component(.minute, from: alarmTime)
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Rise n' SIUUU"
-        content.subtitle = "SIUUUUUUUU"
-        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(rawValue: sound))
-
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-        dateComponents.hour = hour
-        dateComponents.minute = minute
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request)
-        
-        active = true
-    }
     
     var body: some View {
         VStack {
@@ -62,10 +40,18 @@ struct TimeSelectorView: View {
             Spacer()
             
             Button("Save", action: {
+                let notificationController = NotificationController()
                 if hour != 100 {
                     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    notificationController.removeNotifications()
                 }
-                createNotification()
+                
+                let calendar = Calendar.current
+                hour = calendar.component(.hour, from: alarmTime)
+                minute = calendar.component(.minute, from: alarmTime)
+                
+                notificationController.createNotification(hour: hour, minute: minute, sound: sound)
+                active = true
                 
                 presentationMode.wrappedValue.dismiss()
             })
