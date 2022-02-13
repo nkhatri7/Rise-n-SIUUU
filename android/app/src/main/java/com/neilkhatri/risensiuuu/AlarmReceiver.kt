@@ -23,7 +23,7 @@ class AlarmReceiver : BroadcastReceiver() {
             PendingIntent.getActivity(context, 0, intentMainActivity,
             PendingIntent.FLAG_IMMUTABLE)
 
-        val CHANNEL_ID = "7578afga78sftas7f"
+        val CHANNEL_ID = context.getString(R.string.channel_id)
 
         // Set up the notification service
         val notificationManager : NotificationManager =
@@ -33,7 +33,7 @@ class AlarmReceiver : BroadcastReceiver() {
             val channelId = CHANNEL_ID
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val channel = NotificationChannel(channelId,
-                "Rise n' SIUUU notification channel", importance)
+                context.getString(R.string.channel_name), importance)
             notificationManager.createNotificationChannel(channel)
         }
 
@@ -48,9 +48,9 @@ class AlarmReceiver : BroadcastReceiver() {
         // Make the notification parameters
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.logo)
-            .setContentTitle("Rise n' SIUUU")
-            .setContentText("SIUUUUUUUU")
-            .setStyle(NotificationCompat.BigTextStyle().bigText("SIUUUUUUUU"))
+            .setContentTitle(context.getString(R.string.app_name))
+            .setContentText(context.getString(R.string.notification_subtitle))
+            .setStyle(NotificationCompat.BigTextStyle())
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setSound(Uri.parse("android.resource://${context.packageName}/${alarmSound}"))
