@@ -6,7 +6,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.media.MediaPlayer
+import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
@@ -23,19 +23,6 @@ class AlarmReceiver : BroadcastReceiver() {
             PendingIntent.getActivity(context, 0, intentMainActivity,
             PendingIntent.FLAG_IMMUTABLE)
 
-        val CHANNEL_ID = context.getString(R.string.channel_id)
-
-        // Set up the notification service
-        val notificationManager : NotificationManager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID,
-                context.getString(R.string.channel_name), importance)
-            notificationManager.createNotificationChannel(channel)
-        }
-
         // Get preferred alarm sound
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         var alarmSound = R.raw.siuuu_notification_loop
@@ -43,6 +30,10 @@ class AlarmReceiver : BroadcastReceiver() {
             "looped" -> alarmSound = R.raw.siuuu_notification_loop
             "single" -> alarmSound = R.raw.siuuu_audio
         }
+        val packageName = context.applicationContext.packageName
+        val soundUri : Uri = Uri.parse("android.resource://${packageName}/${alarmSound}")
+
+        val CHANNEL_ID = context.getString(R.string.channel_id)
 
         // Make the notification parameters
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
@@ -52,14 +43,29 @@ class AlarmReceiver : BroadcastReceiver() {
             .setStyle(NotificationCompat.BigTextStyle())
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
-            .setSound(Uri.parse("android.resource://${context.packageName}/${alarmSound}"))
+            .setSound(soundUri)
             .setAutoCancel(true)
 
-        notificationManager.notify(0, builder.build())
+        // Set up the notification service
+        val notificationManager : NotificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        // Play SIUUU sound
-        val sound : MediaPlayer = MediaPlayer.create(context, alarmSound)
-        sound.start()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val notificationChannel = NotificationChannel(CHANNEL_ID,
+                context.getString(R.string.channel_name), importance)
+
+            // Create audio attribute
+            val audioAttributes = AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .setUsage(AudioAttributes.USAGE_ALARM)
+                .build()
+
+            notificationChannel.setSound(soundUri, audioAttributes)
+            notificationManager.createNotificationChannel(notificationChannel)
+        }
+
+        notificationManager.notify(0, builder.build())
 
         // Make toggle inactive after notification has been sent
         val editor = prefs.edit()
