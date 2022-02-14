@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="help_text">
-        To hear the SIUUU alarm, your phone must have silent mode switched off.\n\nIf you want to
-        put on Do Not Disturb while you sleep, make this app an exception by enabling this app to
-        override do not disturb in settings.
+        To hear the SIUUU alarm, your phone must have silent mode switched off and the notifications
+        must be turned on for this app.\n\nIf you want to put on Do Not Disturb while you sleep,
+        make this app an exception by enabling this app to override do not disturb in settings.
     </string>
 </resources>

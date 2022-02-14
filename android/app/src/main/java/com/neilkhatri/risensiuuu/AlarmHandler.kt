@@ -18,12 +18,20 @@ class AlarmHandler(context: Context) {
         PendingIntent.FLAG_IMMUTABLE)
 
     fun createAlarm(hour: Int, minute: Int) {
-        val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, hour)
-        calendar.set(Calendar.MINUTE, minute)
-        calendar.set(Calendar.SECOND, 0)
+        val alarmTime = Calendar.getInstance()
+        alarmTime.set(Calendar.HOUR_OF_DAY, hour)
+        alarmTime.set(Calendar.MINUTE, minute)
+        alarmTime.set(Calendar.SECOND, 0)
+        alarmTime.set(Calendar.MILLISECOND, 0)
 
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+        val currentTime = Calendar.getInstance()
+        val timeComparison = currentTime.compareTo(alarmTime)
+        if (timeComparison == 1) {
+            val nextDay = alarmTime.get(Calendar.DAY_OF_YEAR) + 1
+            alarmTime.set(Calendar.DAY_OF_YEAR, nextDay)
+        }
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, alarmTime.timeInMillis, pendingIntent)
     }
 
     fun cancelAlarm() {
