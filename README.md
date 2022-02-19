@@ -2,9 +2,7 @@
 
 Rise n' SIUUU is a utility app that enables users to set alarms that play the famous SIUUU noise heard in Cristiano Ronaldo's celebration.
 
-**Available on the App Store:** [https://apps.apple.com/app/rise-n-siuuu/id1604010390](https://apps.apple.com/app/rise-n-siuuu/id1604010390)
-
-**Available on the Google Play Store:** [https://play.google.com/store/apps/details?id=com.neilkhatri.risensiuuu](https://play.google.com/store/apps/details?id=com.neilkhatri.risensiuuu)
+Check it out on the **[App Store](https://apps.apple.com/app/rise-n-siuuu/id1604010390)** and on **[Google Play](https://play.google.com/store/apps/details?id=com.neilkhatri.risensiuuu)**
 
 ## Built With
 ### iOS
