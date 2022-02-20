@@ -28,6 +28,23 @@ struct SettingsView: View {
             .pickerStyle(.segmented)
             
             Spacer()
+            
+            
+            HStack {
+                Spacer()
+                Button("SIUUU", action: {
+                    playSound()
+                })
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 28, weight: Font.Weight.semibold))
+                    .frame(width: 180, height: 70)
+                    .background(Color.red)
+                    .cornerRadius(50)
+                Spacer()
+            }
+            
+            Spacer()
+            Spacer()
         }
         .padding([.leading, .trailing], 20)
         .background(Color("customBackgroundColour").edgesIgnoringSafeArea(.all))

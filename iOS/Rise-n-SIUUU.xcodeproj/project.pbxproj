@@ -21,6 +21,7 @@
 		0E7CA11E278678E700E1BCCE /* Rise_n_SIUUUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA11D278678E700E1BCCE /* Rise_n_SIUUUUITests.swift */; };
 		0E7CA120278678E700E1BCCE /* Rise_n_SIUUUUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7CA11F278678E700E1BCCE /* Rise_n_SIUUUUITestsLaunchTests.swift */; };
 		0E7CA12D27867B0000E1BCCE /* SIUUU_Audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */; };
+		0EDEC40B27C24F18006BFD45 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEC40A27C24F18006BFD45 /* PlaySound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		0E7CA11D278678E700E1BCCE /* Rise_n_SIUUUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rise_n_SIUUUUITests.swift; sourceTree = "<group>"; };
 		0E7CA11F278678E700E1BCCE /* Rise_n_SIUUUUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rise_n_SIUUUUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SIUUU_Audio.mp3; sourceTree = "<group>"; };
+		0EDEC40A27C24F18006BFD45 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				0E575E5A278C38A800D64A96 /* HelpView.swift */,
 				0E0603D12787996E00B55B1E /* TimeSelectorView.swift */,
 				0E575E5C278C3EED00D64A96 /* SettingsView.swift */,
+				0EDEC40A27C24F18006BFD45 /* PlaySound.swift */,
 				0E11B5C127B89FF70074CC06 /* NotificationController.swift */,
 				0E0603D327879B2700B55B1E /* Alarm.swift */,
 				0E7CA12C27867B0000E1BCCE /* SIUUU_Audio.mp3 */,
@@ -281,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E0603D22787996E00B55B1E /* TimeSelectorView.swift in Sources */,
+				0EDEC40B27C24F18006BFD45 /* PlaySound.swift in Sources */,
 				0E7CA105278678E600E1BCCE /* ContentView.swift in Sources */,
 				0E7CA103278678E600E1BCCE /* Rise_n_SIUUUApp.swift in Sources */,
 				0E11B5C227B89FF70074CC06 /* NotificationController.swift in Sources */,
@@ -461,7 +465,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.neilkhatri.Rise-n-SIUUU";
 				PRODUCT_NAME = "Rise n' SIUUU";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -492,7 +496,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.neilkhatri.Rise-n-SIUUU";
 				PRODUCT_NAME = "Rise n' SIUUU";
 				SWIFT_EMIT_LOC_STRINGS = YES;
