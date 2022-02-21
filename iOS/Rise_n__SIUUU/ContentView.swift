@@ -83,6 +83,17 @@ struct ContentView: View {
                         }
                     }
                 }
+                
+                Button("SIUUU", action: {
+                    playSound()
+                })
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 24, weight: Font.Weight.semibold))
+                    .frame(width: 200, height: 70)
+                    .background(Color.red)
+                    .cornerRadius(50)
+                    .padding(.top, hour == 100 ? 10 : 40)
+                
                 Spacer()
                 HStack {
                     NavigationLink(destination: HelpView()) {
