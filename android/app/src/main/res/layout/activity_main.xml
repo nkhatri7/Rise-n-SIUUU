@@ -21,14 +21,10 @@
 
     <Button
         android:id="@+id/alarmBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
         android:backgroundTint="@color/brand_red"
         android:fontFamily="sans-serif-medium"
-        android:paddingLeft="25dp"
-        android:paddingTop="15dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="15dp"
         android:text="Set an alarm"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
@@ -79,9 +75,9 @@
         android:id="@+id/alarmTimeContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/top_bottom_border"
         android:clickable="true"
         android:orientation="horizontal"
-        android:background="@drawable/top_bottom_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -103,20 +99,37 @@
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginRight="-15dp"
             android:layout_weight="1"
             android:baselineAligned="false"
-            android:contentDescription="toggle for alarm"
-            android:layout_marginRight="-15dp"/>
+            android:contentDescription="toggle for alarm" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginRight="-15dp"
+            android:layout_weight="1"
             app:srcCompat="@drawable/chevron_right" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/siuuuBtn"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/brand_red"
+        android:fontFamily="sans-serif-medium"
+        android:text="SIUUU"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.631" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

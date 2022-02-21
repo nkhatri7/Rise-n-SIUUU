@@ -1,6 +1,7 @@
 package com.neilkhatri.risensiuuu
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val alarmTimeContainer = findViewById<LinearLayout>(R.id.alarmTimeContainer)
         val alarmTime = findViewById<TextView>(R.id.alarmTime)
         val activeToggle = findViewById<Switch>(R.id.activeToggle)
+        val sound : MediaPlayer = MediaPlayer.create(this, R.raw.siuuu_audio)
 
         if (hour == 100) {
             alarmTimeContainer.visibility = View.INVISIBLE
@@ -64,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         configureAlarmBtn()
+        configureSiuuBtn(sound)
         configureHelpBtn()
         configureOptionsBtn()
     }
@@ -72,6 +75,13 @@ class MainActivity : AppCompatActivity() {
         val alarmBtn = findViewById<Button>(R.id.alarmBtn)
         alarmBtn.setOnClickListener {
            navigateToTimeSelector()
+        }
+    }
+
+    private fun configureSiuuBtn(sound: MediaPlayer) {
+        val siuuuBtn = findViewById<Button>(R.id.siuuuBtn)
+        siuuuBtn.setOnClickListener {
+            sound.start()
         }
     }
 
