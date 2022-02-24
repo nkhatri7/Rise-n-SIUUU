@@ -58,7 +58,7 @@ struct TimeSelectorView: View {
                 .foregroundColor(Color.white)
                 .font(.system(size: 20, weight: Font.Weight.semibold))
                 .frame(width: 150, height: 60)
-                .background(Color.red)
+                .background(Color("brandRed"))
                 .cornerRadius(50)
                 .padding()
         }
