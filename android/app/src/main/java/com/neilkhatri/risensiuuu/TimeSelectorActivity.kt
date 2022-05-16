@@ -25,7 +25,7 @@ import java.util.*
 class TimeSelectorActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun onCreate(savedInstanceState: Bundle?) {
+    fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_selector)
         supportActionBar?.hide()
